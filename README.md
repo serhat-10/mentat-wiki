@@ -5,9 +5,10 @@ project's status, next step, decisions, open threads and experiment notes in a l
 The next session starts with the status, open threads and recent notes loaded (decisions stay one
 file away), and `/wrap` updates them before you stop.
 
-Claude Code first; any shell-capable agent through `AGENTS.md`. Python 3.10+, standard library
-only, no services, no network calls, no telemetry. MIT. Early release (alpha). Built on Andrej
-Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern.
+The vault is plain Markdown, best read in Obsidian. Claude Code first; any shell-capable agent
+through `AGENTS.md`. Python 3.10+, standard library only, no services, no network calls, no
+telemetry. MIT. Early release (alpha). Built on Andrej Karpathy's
+[LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern.
 
 ## What a session looks like
 
@@ -128,6 +129,33 @@ The agent:
 - checks for an existing page before writing a new one;
 - asks once before saving anything else (next section).
 
+## Better with Obsidian
+
+mentat-wiki does not need [Obsidian](https://obsidian.md), but the two work best together:
+mentat-wiki writes the vault, Obsidian shows it. Choose "Open folder as vault", pick the folder you
+gave to `mentat-wiki init`, and leave it open next to your agent. There is no plugin and nothing to
+sync; the CLI writes plain Markdown into that folder, so every save shows up there:
+
+| When | What changes in Obsidian |
+|---|---|
+| `/wrap` | the project's `status` and `open-threads` pages, and a line in `wiki/log` |
+| a decision (`decide`) | a row in the project's `decisions` page |
+| an experiment (`note`) | a line in the project's `experiments` page |
+| `/keep`, `/idea` | a new page, listed in `wiki/index` |
+| `inbox` | a line in `inbox/inbox` |
+
+What you get from it:
+
+- You see what the agent saved while you work, and can correct a page by hand. `status` and
+  `open-threads` are the exception: the next `/wrap` rewrites them.
+- Pages link with `[[wikilinks]]`, starting from `wiki/index`, so backlinks and the graph view work
+  without setup.
+- Frontmatter such as `type`, `domain` and `status` appears as properties you can search on.
+
+To see it filled in, open
+[examples/demo-vault](https://github.com/serhat-10/mentat-wiki/tree/main/examples/demo-vault) in
+Obsidian.
+
 ## Ask-first capture (early)
 
 When something worth keeping comes up mid-session (an idea, reusable knowledge, a decision the
@@ -225,7 +253,8 @@ Point any shell-capable agent at your vault's `AGENTS.md`, or tell it to run
 
 ## FAQ
 
-**Do I need Obsidian?** No. Any editor works; Obsidian just renders the `[[links]]` nicely.
+**Do I need Obsidian?** No, any editor works. It is the recommended way to read the vault, though:
+see "Better with Obsidian" above.
 
 **Why `mentat-wiki` and not `mentat`?** An unrelated, older PyPI package already installs a
 `mentat` command. A unique name avoids colliding with it.
