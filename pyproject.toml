@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mentat-wiki"
+dynamic = ["version"]
+description = "Project continuity for LLM coding agents, kept in a local Markdown wiki."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = ["llm", "claude-code", "agents", "knowledge-base", "wiki", "obsidian", "markdown", "memory"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/serhat-10/mentat-wiki"
+Issues = "https://github.com/serhat-10/mentat-wiki/issues"
+Changelog = "https://github.com/serhat-10/mentat-wiki/blob/main/CHANGELOG.md"
+
+[project.scripts]
+mentat-wiki = "mentat_wiki.cli:main"
+
+[tool.setuptools]
+packages = ["mentat_wiki"]
+
+[tool.setuptools.dynamic]
+version = { attr = "mentat_wiki.__version__" }
+
+[tool.setuptools.package-data]
+mentat_wiki = ["data/**/*"]

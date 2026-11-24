@@ -1,0 +1,2 @@
+recursive-include mentat_wiki/data *
+include LICENSE README.md
