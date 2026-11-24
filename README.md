@@ -77,7 +77,7 @@ Recent experiment notes:
 ## Quickstart
 
 ```bash
-pipx install mentat-wiki          # or: pip install mentat-wiki
+pipx install git+https://github.com/serhat-10/mentat-wiki    # or: pip install git+https://...
 mentat-wiki init ~/vault          # creates the vault and remembers its path
 mentat-wiki install claude        # shows a diff and asks first; --dry-run only previews
 cd ~/code/my-app                  # any existing project folder
@@ -85,9 +85,11 @@ mentat-wiki project register      # name defaults to the folder: my-app
 mentat-wiki doctor                # checks the vault and the Claude Code setup
 ```
 
-If `mentat-wiki` is not found after a pip install, use `python -m mentat_wiki` in its place; the
-installer does the same. Then start Claude Code in `~/code/my-app`. The first session says there is nothing recorded yet;
-from the first `/wrap` on, every session starts where the last one stopped.
+It is not on PyPI yet, so install from GitHub (this needs git). If `mentat-wiki` is not found after
+a pip install, use `python -m mentat_wiki` in its place; the installer does the same.
+
+Then start Claude Code in `~/code/my-app`. The first session says there is nothing recorded yet; from
+the first `/wrap` on, every session starts where the last one stopped.
 
 ### What `install claude` changes
 

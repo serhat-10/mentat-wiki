@@ -12,5 +12,6 @@ Checklist for the maintainer. Nothing in this repo publishes automatically.
 5. Upload to TestPyPI first, install from it in a clean venv, run `mentat-wiki --version` and
    `mentat-wiki init <dir>`.
 6. Upload to PyPI, tag `vX.Y.Z`, create the GitHub release with the CHANGELOG section.
+7. After the first PyPI upload, change the README quickstart to `pipx install mentat-wiki`.
 
 README links are absolute GitHub URLs so they also work on the PyPI project page.
